@@ -1,4 +1,4 @@
-function y=OutputOfChannel(x,channel_string,channel_state)
+function y=OutputOfChannel(x,channel_state)
 %
 %   USAGE:
 %       y=OutputOfChannel(x,channel_string,channel_state)
@@ -13,7 +13,7 @@ function y=OutputOfChannel(x,channel_string,channel_state)
 %
 
 global PCparams;
-
+channel_state = PCparams.design_channelstate;
 % Assume the NORMALIZATION:
 %     N0/2, the noise-variance is assumed to be unity.
 % BPSK: 0 -> +sqrt(R*Eb/N0);  1 -> -sqrt(R*Eb/N0)
