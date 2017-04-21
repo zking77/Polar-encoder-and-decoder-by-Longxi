@@ -1,0 +1,10 @@
+vlib work
+vcom  HDL_DUT_pkg.vhd
+vcom  MATLAB_Function.vhd
+vcom  MinMax.vhd
+vcom  f.vhd
+vcom  MinMax_block.vhd
+vcom  f1.vhd
+vcom  MinMax_block1.vhd
+vcom  f2.vhd
+vcom  HDL_DUT.vhd

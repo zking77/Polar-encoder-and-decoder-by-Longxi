@@ -6,23 +6,13 @@ function updateLLR(i)
 %   Computes the i-th LLR from the tree structure (heap-like-storage)
 %   (Sequence of i values follow bit-reversal order of first N integers)
 % 
-%   PCparams structure is implicit parameter
 %
-% Non-Recursive implementation of the SCD update Likelihoods routine
+% Non-Recursive(iteration ) implementation of the SCD update Likelihoods routine
 %
-%    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-%    WRITTEN BY: Harish Vangala, Emanuele Viterbo, and Yi Hong,
-%                Dept of ECSE, Monash University, Australia.
-% 
-%    - Latest as on 2016-March-03
-%    - Available ONLINE for free: is.gd/polarcodes
-%    - Freely distributed for educational and research purposes
-%    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 global PCparams;
 
 n = PCparams.n;
-
 
 if i==1
     nextlevel=n;
@@ -49,7 +39,7 @@ else
                            PCparams.BITS(1,indx), ...
                            PCparams.LLR(ed+2*(indx-st)+1), ...
                            PCparams.LLR(ed+2*(indx-st)+2) ...
-                           );
+                           );%lowerconv就是g函数
         end
         nextlevel = lastlevel-1;
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +52,7 @@ for lev = nextlevel :-1: 1
     ed = 2^lev - 1;
     for indx = st:ed
         PCparams.LLR(indx) = upperconv(PCparams.LLR(ed+2*(indx-st)+1), ...
-                       PCparams.LLR(ed+2*(indx-st)+2));
+                       PCparams.LLR(ed+2*(indx-st)+2));%upperconv就是f函数
     end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

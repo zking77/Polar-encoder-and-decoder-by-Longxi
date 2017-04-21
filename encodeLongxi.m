@@ -16,7 +16,7 @@ PCparams = struct('N', N, ...
     'FZlookup', zeros(N,1), ...
     'design_channelstate', design_channelstate, ...
     'LLR', zeros(1,2*N-1), ...
-    'BITS', zeros(2,N-1),...
+    'BITS', zeros(2,N-1),... %两行N-1列，第一行是存放从1到N-1的硬裁决后的正负号，用来给g函数做后续的计算
     'bitreversedindices',zeros(N,1),...
     'index_of_first0_from_MSB',zeros(N,1),...
     'index_of_first1_from_MSB',zeros(N,1));
@@ -25,16 +25,8 @@ for i=1:N
     PCparams.bitreversedindices(i) = bin2dec(wrev(dec2bin(i-1,PCparams.n)));
     %bitreversedindices用来存储反序重排的顺序
     
-    %FINDING FIRST INDEX OF '1'
-    i_bin = dec2bin(i-1,PCparams.n);
-    for lastlevel = 1:PCparams.n
-        if i_bin(lastlevel) == '1'
-            break;
-        end
-    end
-    PCparams.index_of_first1_from_MSB(i) = lastlevel;
-    
     %FINDING FIRST INDEX OF '0'
+    %把十进制0到N-1转化为n位的二进制，然后取二进制中第一个0的位置，如果没有0，那么取为n
     i_bin = dec2bin(i-1,PCparams.n);
     for lastlevel = 1:PCparams.n
         if i_bin(lastlevel) == '0'
@@ -43,6 +35,14 @@ for i=1:N
     end
     PCparams.index_of_first0_from_MSB(i) = lastlevel;
     
+    %FINDING FIRST INDEX OF '1'
+    i_bin = dec2bin(i-1,PCparams.n);%把十进制0到N-1转化为n位的二进制
+    for lastlevel = 1:PCparams.n
+        if i_bin(lastlevel) == '1'
+            break;
+        end
+    end
+    PCparams.index_of_first1_from_MSB(i) = lastlevel;
     
 end
 
@@ -57,11 +57,11 @@ F=kronF(PCparams.n);
 x = PCparams.FZlookup; %loads all frozenbits, incl. -1
 x (x == -1) = u;%混合信息比特和冻结比特
 x=mod(x*F,2);%mod2
-tempX = zeros(N,1);%tempX用来暂时存储反序重排后的x
-for i=1:N
-    tempX(i) = x(PCparams.bitreversedindices(i)+1);
-end
-x=tempX;%x作为最后输出
+%tempX = zeros(N,1);%tempX用来暂时存储反序重排后的x
+% for i=1:N
+%     tempX(i) = x(PCparams.bitreversedindices(i)+1);
+% end      %不用反序重排了
+% x=tempX;%x作为最后输出
 end
 
 

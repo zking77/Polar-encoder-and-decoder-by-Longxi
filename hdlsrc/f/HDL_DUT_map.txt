@@ -1,0 +1,9 @@
+ --> HDL_DUT_pkg
+f/HDL_DUT/f/MATLAB Function --> MATLAB_Function
+f/HDL_DUT/f/MinMax/MinMax --> MinMax
+f/HDL_DUT/f --> f
+f/HDL_DUT/f1/MinMax/MinMax --> MinMax_block
+f/HDL_DUT/f1 --> f1
+f/HDL_DUT/f2/MinMax/MinMax --> MinMax_block1
+f/HDL_DUT/f2 --> f2
+f/HDL_DUT --> HDL_DUT
