@@ -15,8 +15,8 @@ y=afterTransmitInChannel(x);
 uhat=decodeLongxi(y,'AWGN',100)
 
 N=16; K=16;
-u=[0;1;0;1;0;1;0;1;0;1;0;1;0;1;0;1];
-x=encodeLongxi(N,K,u,'AWGN',10)
+u=[0;1;0;1;0;1;1;0;1;0;0;1;0;1;1;1];
+x=encodeLongxi(N,K,u,'AWGN',10);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOTE: Except for plotPC(), it is a must to have

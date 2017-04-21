@@ -9,8 +9,6 @@ add wave sim:/HDL_DUT_tb/u_HDL_DUT/in5
 add wave sim:/HDL_DUT_tb/u_HDL_DUT/in6
 add wave sim:/HDL_DUT_tb/u_HDL_DUT/in7
 add wave sim:/HDL_DUT_tb/u_HDL_DUT/in8
-add wave sim:/HDL_DUT_tb/u_HDL_DUT/out_rsvd
-add wave sim:/HDL_DUT_tb/out_rsvd_ref
 add wave sim:/HDL_DUT_tb/u_HDL_DUT/out1
 add wave sim:/HDL_DUT_tb/out1_ref
 add wave sim:/HDL_DUT_tb/u_HDL_DUT/out2
@@ -25,4 +23,6 @@ add wave sim:/HDL_DUT_tb/u_HDL_DUT/out6
 add wave sim:/HDL_DUT_tb/out6_ref
 add wave sim:/HDL_DUT_tb/u_HDL_DUT/out7
 add wave sim:/HDL_DUT_tb/out7_ref
+add wave sim:/HDL_DUT_tb/u_HDL_DUT/out8
+add wave sim:/HDL_DUT_tb/out8_ref
 run -all
