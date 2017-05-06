@@ -1,0 +1,3 @@
+ --> HDL_DUT_pkg
+decoderN4ByFullMatlabOneFunction/HDL_DUT/N2decoder --> N2decoder
+decoderN4ByFullMatlabOneFunction/HDL_DUT --> HDL_DUT

@@ -1,0 +1,3 @@
+LIBRARY successfulSaturation_decoderN4_sfun.mexw64
+EXPORTS
+mexFunction

@@ -1,0 +1,26 @@
+CC     = "E:\MATLAB\R2016b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "E:\MATLAB\R2016b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "E:\MATLAB\R2016b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"E:\MATLAB\R2016b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"successfulSaturation_decoderN4_sfun.obj"\
+	"c3_successfulSaturation_decoderN4.obj"\
+	"successfulSaturation_decoderN4_sfun_registry.obj"\
+	"lccstub.obj"\
+
+INCLUDE_PATH= -I"E:\MATLAB\R2016b\sys\lcc64\lcc64\include64"  -I"E:\MATLAB\R2016b\extern\include"  -I"E:\MATLAB\R2016b\simulink\include"  -I"E:\MATLAB\R2016b\simulink\include\sf_runtime"  -I"E:\MATLAB\R2016b\stateflow\c\mex\include"  -I"E:\MATLAB\R2016b\rtw\c\src"  -I"E:\研究生\TUM\毕设\Polar的Matlab代码\writeByLongxi\Polar-encoder-and-decoder-by-Longxi\slprj\_sfprj\successfulSaturation_decoderN4\_self\sfun\src" 
+ 
+
+successfulSaturation_decoderN4_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o successfulSaturation_decoderN4_sfun.mexw64 @successfulSaturation_decoderN4_sfun.lmko
+successfulSaturation_decoderN4_sfun.obj :	"successfulSaturation_decoderN4_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "successfulSaturation_decoderN4_sfun.c"
+c3_successfulSaturation_decoderN4.obj :	"c3_successfulSaturation_decoderN4.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_successfulSaturation_decoderN4.c"
+successfulSaturation_decoderN4_sfun_registry.obj :	"successfulSaturation_decoderN4_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "successfulSaturation_decoderN4_sfun_registry.c"
+lccstub.obj :	"E:\MATLAB\R2016b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "E:\MATLAB\R2016b\sys\lcc64\lcc64\mex\lccstub.c"

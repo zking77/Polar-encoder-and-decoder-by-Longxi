@@ -40,4 +40,4 @@ BEGIN
 
   out4 <= in4;
 
-END rtl
+END rtl;

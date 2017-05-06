@@ -1,0 +1,2 @@
+defaultMatlabStateMachine/mealy_fsm/mealy_fsm_blk --> mealy_fsm_blk
+defaultMatlabStateMachine/mealy_fsm --> mealy_fsm

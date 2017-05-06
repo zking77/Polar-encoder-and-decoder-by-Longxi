@@ -1,14 +1,12 @@
-function genVHDLencoder(N)
+function genTB_VHDLencoder(N)
 %GENVHDLENCODER 生成N位的Polar Codes的编码器;N是码长，2的n次方是N；
 n = ceil(log2(N));
-fileName = sprintf('encoderN%d',N);
+fileName = sprintf('tbInVivado_encoderN%d',N);
 
-fID = fopen(sprintf('encoderN%d.vhd',N),'w');
-fprintf(fID,'LIBRARY IEEE;\n');
-fprintf(fID,'USE IEEE.std_logic_1164.ALL;\n');
-fprintf(fID,'USE IEEE.numeric_std.ALL;\n\n');
-参考曹博的TB
-fprintf(fID,'\nEND rtl;\n');
+fID = fopen(sprintf('tbInVivado_encoderN%d.TXT',N),'w');
+for i=1:N
+    fprintf(fID,'add_force {/encoderN%d/in%d} -radix hex {0 0ns};\n',N,i);
+end
 
 end
 

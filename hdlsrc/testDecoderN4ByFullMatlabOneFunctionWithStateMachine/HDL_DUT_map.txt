@@ -1,0 +1,2 @@
+testDecoderN4ByFullMatlabOneFunctionWithStateMachine/HDL_DUT/N2decoder --> N2decoder
+testDecoderN4ByFullMatlabOneFunctionWithStateMachine/HDL_DUT --> HDL_DUT

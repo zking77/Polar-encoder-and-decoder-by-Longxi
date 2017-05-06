@@ -1,0 +1,3 @@
+fANDgByFullMatlab/HDL_DUT/f1 --> f1
+fANDgByFullMatlab/HDL_DUT/g1 --> g1
+fANDgByFullMatlab/HDL_DUT --> HDL_DUT

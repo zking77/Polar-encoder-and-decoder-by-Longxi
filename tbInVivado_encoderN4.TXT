@@ -1,0 +1,4 @@
+add_force {/encoderN4/in1} -radix hex {0 0ns};
+add_force {/encoderN4/in2} -radix hex {0 0ns};
+add_force {/encoderN4/in3} -radix hex {0 0ns};
+add_force {/encoderN4/in4} -radix hex {0 0ns};

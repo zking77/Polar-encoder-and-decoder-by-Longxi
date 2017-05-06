@@ -39,7 +39,9 @@ for j=1:N
     else
         d_hat(i) = myfrozenlookup(i);
     end
-    
+        %显示软信息
+        fprintf('软信息%d：%f\n',j,PCparams.LLR(1));
+        
         updateBITS(d_hat(i),i);    %硬裁决每一个位之后，把计算出的当前的结果从左向右更新，以便后面的uhat的进一步运算
 end
 

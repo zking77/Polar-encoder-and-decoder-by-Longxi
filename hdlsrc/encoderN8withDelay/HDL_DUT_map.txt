@@ -1,0 +1,3 @@
+ --> HDL_DUT_pkg
+encoderN8withDelay/HDL_DUT/stateMachine --> stateMachine
+encoderN8withDelay/HDL_DUT --> HDL_DUT

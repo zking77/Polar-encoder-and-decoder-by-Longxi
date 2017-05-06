@@ -1,4 +1,8 @@
-%ModelSim的输入u0-u15 16进制：  0000000100020003001000110012001300200021002200230030003100320033
+%
+VHDL需要加一个type vector_of_signed8 is array (natural range <>) of signed(7 downto 0);
+然后删除testbench里面的--  FOR ALL : HDL_DUT; --    USE ENTITY work.HDL_DUT(rtl);
+
+
 N=8; K=8;
 u=[0;0;0;1;0;1;1;1];
 x=encodeLongxi(N,K,u,'AWGN',10);
@@ -17,6 +21,23 @@ uhat=decodeLongxi(y,'AWGN',100)
 N=16; K=16;
 u=[0;1;0;1;0;1;0;1;0;1;0;1;0;1;0;1];
 x=encodeLongxi(N,K,u,'AWGN',10)
+
+尝试使用RMA：
+persistent intArray;
+if isempty(intArray)
+    testArray =    [54    45    29    68    33    20    69    24    85    94
+        33    53    68     1    79    74    55    12    84    65
+        11    46    70    61    48    25    43    61    26    48
+        62    88     7    39     4    92    65    46    62    64
+        78    52    26    92    18    27    65    46    59    55
+        43    95    23     1    73    77    68    67    55    65
+        10    64    67    47    48    19    64    78    87    55
+        27    96    85    43    16    29    95    36    27    73
+        16    25    35    47    35    10    21    67    32    53
+        29    68    79    78    61    58    71    42    12   100];
+    intArray = int8(testArray);
+end
+u4 = intArray(5,7);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOTE: Except for plotPC(), it is a must to have

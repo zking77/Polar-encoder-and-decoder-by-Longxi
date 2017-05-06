@@ -1,0 +1,3 @@
+ --> moore_sf_pkg
+defaultStateflow/moore_sf/Simple_Moore_Chart --> Simple_Moore_Chart
+defaultStateflow/moore_sf --> moore_sf
